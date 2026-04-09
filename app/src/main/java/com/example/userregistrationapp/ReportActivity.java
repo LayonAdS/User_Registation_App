@@ -1,5 +1,6 @@
 package com.example.userregistrationapp;
 //importação de componentes de ui intençoes e a biblioteca ROOM
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -20,5 +21,15 @@ public class ReportActivity extends AppCompatActivity {
         Button btnVoltar = findViewById(R.id.btnVoltar);
         //o botão de retorno utilizando expressão lamdda
         btnVoltar.setOnClickListener(v -> voltarParaCadastro());
+    }
+
+    //Metodo responsavel pela navegação entre as telas de app
+    public void voltarParaCadastro()
+    {
+        //intençõa para abrir a tela de cadastro
+        Intent intent = new Intent(ReportActivity.this,MainActivity.class);
+        startActivity(intent);
+        finish(); // fecha a tela de relatorio para não acomular na pilha de tarefas
+
     }
 }
