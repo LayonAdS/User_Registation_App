@@ -1,7 +1,13 @@
 plugins {
     alias(libs.plugins.android.application)
 }
-
+configurations.all {
+    resolutionStrategy.eachDependency {
+        if (requested.group == "org.jetbrains.kotlinx" && requested.name == "kotlinx-metadata-jvm") {
+            useVersion("2.1.0")
+        }
+    }
+}
 android {
     namespace = "com.example.userregistrationapp"
     compileSdk {
